@@ -3,100 +3,128 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Login Page</title>
+<title>Login - NotLetters</title>
 <style>
   body {
     margin: 0;
     padding: 0;
+    background-color: #000; /* Dark background */
     font-family: 'Arial', sans-serif;
-    background-color: #121212; /* Dark background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
   }
 
-  .login-container {
-    background-color: #1e1e1e; /* Slightly lighter dark for container */
+  .login-box {
+    width: 350px;
+    background-color: #1a1a1a; /* Slightly lighter dark for container */
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .login-container h2 {
-    color: #fff;
-    text-align: center;
+  /* Logo style */
+  .logo {
     margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #ffb347; /* Similar to the orange color in logo */
+    letter-spacing: 2px;
   }
 
-  .input-group {
-    margin-bottom: 15px;
-  }
-
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 12px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
+  /* Heading */
+  .title {
+    font-size: 20px;
     color: #fff;
-    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: 500;
   }
 
-  input[type="text"]:focus,
-  input[type="password"]:focus {
+  /* Inputs */
+  input[type=email],
+  input[type=password] {
+    width: 100%;
+    padding: 14px 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    font-size: 14px;
+    color: #fff;
     outline: none;
+  }
+
+  input[type=email]:focus,
+  input[type=password]:focus {
     background-color: #444;
   }
 
-  .login-button {
+  /* Error message */
+  .error {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+    height: 16px;
+  }
+
+  /* Button */
+  button {
     width: 100%;
-    padding: 12px;
-    background-color: #5a86ff;
+    padding: 14px 15px;
+    background-color: #b38b4e; /* Similar to the button color */
     color: #fff;
     border: none;
-    border-radius: 5px;
-    font-size: 15px;
+    border-radius: 8px;
+    font-size: 14px;
     cursor: pointer;
+    font-weight: 600;
     transition: background-color 0.3s;
   }
 
-  .login-button:hover {
-    background-color: #4a75e0;
+  button:hover {
+    background-color: #9b6f3d;
   }
 
-  /* Optional: Add a link style */
-  .forgot-link {
-    display: block;
-    text-align: right;
-    margin-top: 10px;
-    color: #aaa;
+  /* Forgot password link */
+  .forgot {
+    margin-top: 15px;
     font-size: 13px;
+    color: #aaa;
     text-decoration: none;
+    align-self: flex-start;
   }
 
-  .forgot-link:hover {
+  .forgot:hover {
     text-decoration: underline;
   }
 </style>
 </head>
 <body>
 
-<div class="login-container">
-  <h2>Login</h2>
+<div class="login-box">
+  <!-- Logo -->
+  <div class="logo">NOTLETTERS</div>
+  <!-- Title -->
+  <div class="title">Log in to mail</div>
+  <!-- Form -->
   <form action="#" method="POST">
-    <div class="input-group">
-      <input type="text" placeholder="Username" required />
-    </div>
-    <div class="input-group">
-      <input type="password" placeholder="Password" required />
-    </div>
-    <button type="submit" class="login-button">Sign In</button>
-    <a class="forgot-link" href="#">Forgot password?</a>
+    <input type="email" placeholder="Email" required />
+    <input type="password" placeholder="Password" required />
+    <div class="error" id="error-message"></div>
+    <button type="submit">Log in</button>
   </form>
+  <a href="#" class="forgot">Forgot password?</a>
 </div>
+
+<script>
+  // Optional: simulate error message
+  // document.getElementById('error-message').innerText = 'Incorrect email address';
+</script>
 
 </body>
 </html>
