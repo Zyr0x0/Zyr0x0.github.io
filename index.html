@@ -2,78 +2,101 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NotLetters Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Login Page</title>
 <style>
   body {
-    background-color: #111;
-    color: #eee;
-    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background */
     display: flex;
-    height: 100vh;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
-  .login-box {
-    background: #222;
-    padding: 20px;
-    border-radius: 8px;
+
+  .login-container {
+    background-color: #1e1e1e; /* Slightly lighter dark for container */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     width: 300px;
   }
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 8px;
-    border: none;
-    border-radius: 4px;
+
+  .login-container h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
   }
-  button {
+
+  .input-group {
+    margin-bottom: 15px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
     width: 100%;
-    padding: 10px;
-    margin-top: 12px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    outline: none;
     background-color: #444;
+  }
+
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5a86ff;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 15px;
     cursor: pointer;
+    transition: background-color 0.3s;
   }
-  button:hover {
-    background-color: #555;
+
+  .login-button:hover {
+    background-color: #4a75e0;
   }
-  .error {
-    color: red;
-    margin-top: 8px;
-    font-size: 0.9em;
+
+  /* Optional: Add a link style */
+  .forgot-link {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    color: #aaa;
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .forgot-link:hover {
+    text-decoration: underline;
   }
 </style>
 </head>
 <body>
-<div class="login-box">
-<h2>Log in to NotLetters</h2>
-<input type="text" id="email" placeholder="Email" />
-<input type="password" id="password" placeholder="Password" />
-<button onclick="login()">Log In</button>
-<div class="error" id="errorMsg"></div>
+
+<div class="login-container">
+  <h2>Login</h2>
+  <form action="#" method="POST">
+    <div class="input-group">
+      <input type="text" placeholder="Username" required />
+    </div>
+    <div class="input-group">
+      <input type="password" placeholder="Password" required />
+    </div>
+    <button type="submit" class="login-button">Sign In</button>
+    <a class="forgot-link" href="#">Forgot password?</a>
+  </form>
 </div>
 
-<script>
-  // Hardcoded admin credentials
-  const admins = {
-    'admin@example.com': 'adminpass'
-  };
-
-  function login() {
-    const email = document.getElementById('email').value.trim();
-    const pass = document.getElementById('password').value.trim();
-    const errorDiv = document.getElementById('errorMsg');
-
-    if (admins[email] && admins[email] === pass) {
-      localStorage.setItem('isAdmin', 'true');
-      window.location.href = 'mail.html'; // load email interface
-    } else {
-      errorDiv.textContent = 'Invalid credentials or not admin.';
-    }
-  }
-</script>
 </body>
 </html>
